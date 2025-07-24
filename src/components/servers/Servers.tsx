@@ -7,15 +7,22 @@ import { serversApi } from "../../api/servers/serversApi";
 import { Spinner } from "../ui/Spinner";
 import { ServerItem } from "./table/ServerItem";
 import { ServersTableHeader } from "./table/ServersTableHeader";
+import { useGlobalContext } from "../../hooks/useGlobalContext";
+import {
+  LocalStorage,
+  LocalStorageKeys,
+} from "../../utils/helpers/localStorage";
 import { Button } from "../ui/Button";
 import { Input } from "../ui/Input";
 
 export const Servers: React.FC = () => {
-  const [isSearching, setIsSearching] = useState<boolean>(false);
-  const [searchValue, setSearchValue] = useState<string>("");
-  const [paginationLink, setPaginationLink] = useState<string>("");
+  const [isSearching, setIsSearching] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
+  const [paginationLink, setPaginationLink] = useState("");
 
-  const [debouncedSearchValue] = useDebounce<string>(searchValue, 1200);
+  const [debouncedSearchValue] = useDebounce(searchValue, 1200);
+
+  const { state, setState } = useGlobalContext();
 
   const { data, refetch } = useQuery({
     queryKey: [`servers-${debouncedSearchValue}`],
@@ -27,6 +34,16 @@ export const Servers: React.FC = () => {
     enabled: false,
   });
 
+  const handleFavoriteButton = (isFavorite: boolean, id: string) => {
+    if (!isFavorite) {
+      setState((prev) => ({ ...prev, favoriteServer: id }));
+      LocalStorage.set(LocalStorageKeys.FavoriteServer, id);
+    } else {
+      LocalStorage.remove(LocalStorageKeys.FavoriteServer);
+      setState((prev) => ({ ...prev, favoriteServer: "" }));
+    }
+  };
+
   const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
 
@@ -34,26 +51,21 @@ export const Servers: React.FC = () => {
       setPaginationLink("");
     }
 
-    if (value.trim().length) {
-      setIsSearching(true);
-    } else {
-      setIsSearching(false);
-    }
-
+    setIsSearching(value.trim().length > 0);
     setSearchValue(value);
   };
 
   const handleNext = () => {
     if (data?.links.next) {
       setIsSearching(true);
-      setPaginationLink(data?.links.next.split("earch%5D=")[1]);
+      setPaginationLink(data.links.next.split("earch%5D=")[1]);
     }
   };
 
   const handlePrev = () => {
     if (data?.links.prev) {
       setIsSearching(true);
-      setPaginationLink(data?.links.prev.split("earch%5D=")[1]);
+      setPaginationLink(data.links.prev.split("earch%5D=")[1]);
     }
   };
 
@@ -62,8 +74,6 @@ export const Servers: React.FC = () => {
       refetch().finally(() => setIsSearching(false));
     }
   }, [debouncedSearchValue, paginationLink]);
-
-  console.log(data);
 
   return (
     <div className="w-full overflow-auto h-[calc(100vh-96px)]">
@@ -75,17 +85,29 @@ export const Servers: React.FC = () => {
           value={searchValue}
           onChange={onInputChange}
         />
+
         {isSearching && (
           <div className="w-full flex justify-center my-8">
             <Spinner size={30} />
           </div>
         )}
+
         {!!data?.data.length && (
           <div>
             <ServersTableHeader />
-            {data?.data.map((item) => {
-              return <ServerItem key={item.id} item={item} />;
-            })}
+            {data.data.map((item) => (
+              <ServerItem
+                key={item.id}
+                item={item}
+                isFavorite={item.id === state.favoriteServer}
+                handleFavorite={() =>
+                  handleFavoriteButton(
+                    item.id === state.favoriteServer,
+                    item.id
+                  )
+                }
+              />
+            ))}
             <div className="flex align-middle justify-center gap-4 mt-8 mb-12">
               <Button
                 variant="outlined"

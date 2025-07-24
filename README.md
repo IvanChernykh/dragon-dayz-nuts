@@ -8,7 +8,7 @@ Dedicated Resourceful Assistive Graphical Overpowered Nimble Dayz Nerdy Utility 
 - map
 - crafting recipes
 - weapon tier list
-  - https://wobo.tools/dayz-weapon-rank-tool?score=Overall_Score
+- ligma base
 
 ## Endpoints
 

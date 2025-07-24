@@ -12,7 +12,7 @@ export const MenuItem: React.FC<IProps> = ({ to, children }) => {
       className={({ isActive }) =>
         `${
           isActive ? "bg-gray-800" : ""
-        } hover:bg-gray-700 hover:cursor-pointer p-3 w-full`
+        } hover:bg-gray-700 cursor-pointer p-3 w-full`
       }
     >
       {children}

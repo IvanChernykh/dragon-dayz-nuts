@@ -5,7 +5,8 @@ body {
   padding: 0;
 }
 
-input {
+input,
+button {
   border: none;
   outline: none;
 }

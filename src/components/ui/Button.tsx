@@ -36,7 +36,7 @@ export const Button: React.FC<IProps> = ({
         ${
           disabled
             ? "bg-gray-200 text-gray-950 opacity-60"
-            : "hover:bg-amber-50 hover:text-gray-950 hover:cursor-pointer"
+            : "hover:bg-amber-50 hover:text-gray-950 cursor-pointer"
         }
         ${className}
       `}

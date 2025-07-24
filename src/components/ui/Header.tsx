@@ -1,17 +1,88 @@
-import React from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useQuery } from "@tanstack/react-query";
+import React, { useEffect, useRef } from "react";
+import { NavLink, useLocation } from "react-router";
+
+import { Button } from "./Button";
+import { ClockIcon } from "./icons/ClockIcon";
+import { PersonIcon } from "./icons/PersonIcon";
+import { serversApi } from "../../api/servers/serversApi";
+import { useGlobalContext } from "../../hooks/useGlobalContext";
+import { QueryKeys } from "../../utils/constants/queryKeys";
+import { routes } from "../../utils/constants/routes";
 
 export const Header: React.FC = () => {
+  const { state } = useGlobalContext();
+  const favorite = state.favoriteServer;
+
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const { pathname } = useLocation();
+
+  const { data, refetch } = useQuery({
+    queryKey: [QueryKeys.FAVORITE_SERVERS],
+    queryFn: () => {
+      if (!favorite) {
+        return;
+      }
+
+      return serversApi.getServer(favorite);
+    },
+    enabled: !!favorite,
+  });
+
+  useEffect(() => {
+    console.log(favorite);
+    if (!favorite || intervalRef.current) {
+      return;
+    }
+
+    refetch();
+
+    intervalRef.current = setInterval(() => {
+      refetch();
+    }, 20000);
+
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+      }
+    };
+  }, [favorite]);
+
   return (
     <div className="h-16 bg-gray-900 flex items-center px-3">
-      <p>
-        <span className="font-bold">Server not choosen </span>
-      </p>
-      {/* <p>
-        <span className="font-bold">Players: </span>69
-      </p>
-      <p>
-        <span className="font-bold">Time: </span>12.42
-      </p> */}
+      <div className="px-4 flex items-center justify-end gap-12 w-full text-lg">
+        {favorite ? (
+          <>
+            <span>{data?.data.attributes.name}</span>
+
+            {data && (
+              <span className="flex items-center gap-4">
+                <PersonIcon />
+                {data.data.attributes.players} /{" "}
+                {data.data.attributes.maxPlayers}
+              </span>
+            )}
+
+            {data && (
+              <span className="flex items-center gap-4">
+                <ClockIcon />
+                {data.data.attributes.details.time}
+              </span>
+            )}
+          </>
+        ) : (
+          <>
+            {!pathname.includes(routes.servers) && (
+              <NavLink to={routes.servers}>
+                <Button className="font-bold">[ choose server ]</Button>
+              </NavLink>
+            )}
+          </>
+        )}
+      </div>
     </div>
   );
 };

@@ -8,10 +8,16 @@ import { WrenchIcon } from "../../ui/icons/WrenchIcon";
 import type { ServerInfo } from "../../../api/servers/serversSchema";
 
 interface IProps {
+  isFavorite: boolean;
   item: ServerInfo;
+  handleFavorite: () => void;
 }
 
-export const ServerItem: React.FC<IProps> = ({ item }) => {
+export const ServerItem: React.FC<IProps> = ({
+  item,
+  isFavorite,
+  handleFavorite,
+}) => {
   const { attributes } = item;
 
   return (
@@ -40,7 +46,9 @@ export const ServerItem: React.FC<IProps> = ({ item }) => {
         {attributes.players} / {attributes.maxPlayers}
       </div>
       <div className="col-span-1 flex justify-center">
-        <StarIcon />
+        <button className="cursor-pointer" onClick={handleFavorite}>
+          <StarIcon mode={isFavorite ? "fill" : "outline"} />
+        </button>
       </div>
     </div>
   );
