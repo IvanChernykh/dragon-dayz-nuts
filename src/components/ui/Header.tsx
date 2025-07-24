@@ -43,7 +43,7 @@ export const Header: React.FC = () => {
       refetch();
     }, 20000);
 
-    return () => {
+    return (): void => {
       if (intervalRef.current) {
         clearInterval(intervalRef.current);
         intervalRef.current = null;

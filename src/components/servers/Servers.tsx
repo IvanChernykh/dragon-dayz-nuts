@@ -34,7 +34,7 @@ export const Servers: React.FC = () => {
     enabled: false,
   });
 
-  const handleFavoriteButton = (isFavorite: boolean, id: string) => {
+  const handleFavoriteButton = (isFavorite: boolean, id: string): void => {
     if (!isFavorite) {
       setState((prev) => ({ ...prev, favoriteServer: id }));
       LocalStorage.set(LocalStorageKeys.FavoriteServer, id);
@@ -44,7 +44,7 @@ export const Servers: React.FC = () => {
     }
   };
 
-  const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const value = e.target.value;
 
     if (paginationLink.length) {
@@ -55,14 +55,14 @@ export const Servers: React.FC = () => {
     setSearchValue(value);
   };
 
-  const handleNext = () => {
+  const handleNext = (): void => {
     if (data?.links.next) {
       setIsSearching(true);
       setPaginationLink(data.links.next.split("earch%5D=")[1]);
     }
   };
 
-  const handlePrev = () => {
+  const handlePrev = (): void => {
     if (data?.links.prev) {
       setIsSearching(true);
       setPaginationLink(data.links.prev.split("earch%5D=")[1]);

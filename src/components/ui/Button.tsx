@@ -6,7 +6,7 @@ interface IProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: Variant;
 }
 
-const getStyles = (variant?: Variant) => {
+const getStyles = (variant?: Variant): string => {
   if (variant === "outlined") {
     return "border-amber-50 border-1 rounded-xl border-solid";
   }
