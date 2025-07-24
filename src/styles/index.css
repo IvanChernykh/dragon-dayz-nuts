@@ -4,3 +4,31 @@ body {
   margin: 0;
   padding: 0;
 }
+
+input {
+  border: none;
+  outline: none;
+}
+
+/* Контейнер скролу */
+::-webkit-scrollbar {
+  background: transparent;
+  width: 12px;
+}
+
+/* Трек (фон скролу) */
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 4px;
+}
+
+/* Повзунок */
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-gray-800);
+  border-radius: 4px;
+}
+
+/* При наведенні */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gray-700);
+}
