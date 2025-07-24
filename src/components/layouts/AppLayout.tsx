@@ -1,7 +1,8 @@
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import React from "react";
 import { BrowserRouter } from "react-router";
+
 import { RoutesLayout } from "./RoutesLayout";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { MenuBar } from "../MenuBar";
 import { Header } from "../ui/Header";
 

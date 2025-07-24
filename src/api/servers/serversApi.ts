@@ -1,6 +1,7 @@
-import type { AxiosInstance } from "axios";
 import axiosInstance from "../axiosInstance";
+
 import type { GetAllServersResponse, GetServerResponse } from "./serversSchema";
+import type { AxiosInstance } from "axios";
 
 const baseUrl = "https://api.battlemetrics.com/servers";
 

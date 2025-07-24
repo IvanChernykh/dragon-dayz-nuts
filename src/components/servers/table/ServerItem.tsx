@@ -1,9 +1,11 @@
 import React from "react";
-import type { ServerInfo } from "../../../api/servers/serversSchema";
-import { WrenchIcon } from "../../ui/icons/WrenchIcon";
+
 import { LockIcon } from "../../ui/icons/LockIcon";
-import { TwoPersonsIcon } from "../../ui/icons/TwoPersonsIcon";
 import { StarIcon } from "../../ui/icons/StarIcon";
+import { TwoPersonsIcon } from "../../ui/icons/TwoPersonsIcon";
+import { WrenchIcon } from "../../ui/icons/WrenchIcon";
+
+import type { ServerInfo } from "../../../api/servers/serversSchema";
 
 interface IProps {
   item: ServerInfo;

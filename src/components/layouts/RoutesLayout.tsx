@@ -1,8 +1,9 @@
 import React from "react";
 import { Route, Routes, useLocation } from "react-router";
+
+import { routes } from "../../utils/constants/routes";
 import { Map } from "../map/Map";
 import { Servers } from "../servers/Servers";
-import { routes } from "../../utils/constants/routes";
 
 export const RoutesLayout: React.FC = () => {
   const path = useLocation();

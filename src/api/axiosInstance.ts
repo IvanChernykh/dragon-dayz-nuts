@@ -2,8 +2,8 @@ import axios from "axios";
 
 const axiosInstance = axios.create();
 
-axiosInstance.interceptors.response.use((value) => {
-  return value?.data;
+axiosInstance.interceptors.response.use((res) => {
+  return res?.data;
 });
 
 export default axiosInstance;

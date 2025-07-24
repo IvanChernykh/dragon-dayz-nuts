@@ -1,13 +1,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Input } from "../ui/Input";
-import { serversApi } from "../../api/servers/serversApi";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { useDebounce } from "use-debounce";
+
+import { serversApi } from "../../api/servers/serversApi";
 import { Spinner } from "../ui/Spinner";
 import { ServerItem } from "./table/ServerItem";
 import { ServersTableHeader } from "./table/ServersTableHeader";
 import { Button } from "../ui/Button";
+import { Input } from "../ui/Input";
 
 export const Servers: React.FC = () => {
   const [isSearching, setIsSearching] = useState<boolean>(false);
