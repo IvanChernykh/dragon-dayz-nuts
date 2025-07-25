@@ -13,6 +13,7 @@ const menuItems: MenuItem[] = [
   { text: "Map", path: routes.map },
   { text: "Wiki", path: routes.wiki },
   { text: "Weapons", path: routes.weapons },
+  { text: "Links", path: routes.links },
 ];
 
 export const MenuBar: React.FC = () => {

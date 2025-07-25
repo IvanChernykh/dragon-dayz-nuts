@@ -3,4 +3,5 @@ export const routes = {
   map: "/",
   wiki: "wiki",
   weapons: "weapons",
+  links: "links",
 };

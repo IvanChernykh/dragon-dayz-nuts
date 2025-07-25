@@ -6,13 +6,11 @@ Dedicated Resourceful Assistive Graphical Overpowered Nimble Dayz Nerdy Utility 
 
 - server info (choose server, remember)
 - map
-- crafting recipes
+- wiki
 - weapon tier list
-- ligma base
+- crafting recipes
+- links
 
 ## Endpoints
 
-#### Servers
-
-- GET https://api.battlemetrics.com/servers
-- GET https://api.battlemetrics.com/servers/:id
+- GET https://dayz.fandom.com/wikia.php?controller=UnifiedSearchSuggestions&method=getSuggestions&query=nig&format=json&scope=internal
