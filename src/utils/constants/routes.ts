@@ -1,6 +1,6 @@
 export const routes = {
   servers: "servers",
-  map: "/",
+  map: "/map",
   wiki: "wiki",
   weapons: "weapons",
   links: "links",

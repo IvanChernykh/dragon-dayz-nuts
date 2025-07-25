@@ -12,7 +12,7 @@ const menuItems: MenuItem[] = [
   { text: "Servers", path: routes.servers },
   { text: "Map", path: routes.map },
   { text: "Wiki", path: routes.wiki },
-  { text: "Weapons", path: routes.weapons },
+  // { text: "Weapons", path: routes.weapons },
   { text: "Links", path: routes.links },
 ];
 

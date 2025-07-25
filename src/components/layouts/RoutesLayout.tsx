@@ -5,6 +5,7 @@ import { routes } from "../../utils/constants/routes";
 import { Links } from "../links/Links";
 import { Map } from "../map/Map";
 import { Servers } from "../servers/Servers";
+import { Welcome } from "../welcome/Welcome";
 import { Wiki } from "../wiki/Wiki";
 
 export const RoutesLayout: React.FC = () => {
@@ -23,8 +24,9 @@ export const RoutesLayout: React.FC = () => {
         <Route path={routes.servers} element={<Servers />} />
         <Route path={routes.map} element={<Map />} />
         <Route path={routes.wiki} element={<Wiki />} />
-        <Route path={routes.weapons} element={<div>weapons</div>} />
+        {/* <Route path={routes.weapons} element={<div>weapons</div>} /> */}
         <Route path={routes.links} element={<Links />} />
+        <Route path="/" element={<Welcome />} />
       </Routes>
     </div>
   );
