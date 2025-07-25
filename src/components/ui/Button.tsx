@@ -31,7 +31,6 @@ export const Button: React.FC<IProps> = ({
       className={`
         p-2
         rounded
-        transition
         ${getStyles(variant)}
         ${
           disabled

@@ -8,10 +8,12 @@ import {
 
 export type GlobalState = {
   favoriteServer: string;
+  inviteLink: string;
 };
 
 const defaultState: GlobalState = {
   favoriteServer: "",
+  inviteLink: "",
 };
 
 export const GlobalContextProvider: React.FC<{ children: ReactNode }> = ({
