@@ -13,7 +13,7 @@ export const AppLayout: React.FC = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <GlobalContextProvider>
-        <BrowserRouter>
+        <BrowserRouter basename="/dragon-dayz-nuts">
           <div className="flex w-full h-screen overflow-hidden">
             <MenuBar />
             <div className="w-full">
