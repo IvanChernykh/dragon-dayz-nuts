@@ -1,6 +1,6 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import React from "react";
-import { BrowserRouter } from "react-router";
+import { HashRouter } from "react-router";
 
 import { RoutesLayout } from "./RoutesLayout";
 import { GlobalContextProvider } from "../context/GlobalContext";
@@ -13,7 +13,7 @@ export const AppLayout: React.FC = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <GlobalContextProvider>
-        <BrowserRouter basename="/dragon-dayz-nuts">
+        <HashRouter>
           <div className="flex w-full h-screen overflow-hidden">
             <MenuBar />
             <div className="w-full">
@@ -21,7 +21,7 @@ export const AppLayout: React.FC = () => {
               <RoutesLayout />
             </div>
           </div>
-        </BrowserRouter>
+        </HashRouter>
       </GlobalContextProvider>
     </QueryClientProvider>
   );

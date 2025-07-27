@@ -4,6 +4,6 @@ import { defineConfig } from "vite";
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "https://ivanchernykh.github.io/dragon-dayz-nuts/",
+  base: "/dragon-dayz-nuts/",
   plugins: [react(), tailwindcss()],
 });
