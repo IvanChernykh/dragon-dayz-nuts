@@ -18,9 +18,11 @@ const menuItems: MenuItem[] = [
 
 export const MenuBar: React.FC = () => {
   return (
-    <div className="w-full max-w-[250px] bg-gray-900">
+    <div className="w-full max-w-[150px] sm:max-w-[200px] mx:max-w[240px] 2xl:max-w-[250px] bg-gray-900">
       <div className="h-16 flex items-center justify-center mb-4">
-        <h4 className="font-bold text-xl">Dragon Dayz Nuts</h4>
+        <h4 className="font-bold text-sm sm:text-base md:text-lg lg:text-xl">
+          Dragon Dayz Nuts
+        </h4>
       </div>
       <div className="w-full flex flex-col">
         {menuItems.map((item) => {

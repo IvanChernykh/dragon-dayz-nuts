@@ -80,7 +80,7 @@ export const Servers: React.FC = () => {
       <div className="max-w-[1200px] mx-auto py-4">
         <Input
           placeholder="Search"
-          className="p-4 w-full max-w-[900px] mx-auto block mb-8"
+          className="p-4 w-full max-w-[300px] md:max-w-[500px] lg:max-w-[600px] xl:max-w-[900px] mx-auto block mb-8"
           id="search"
           value={searchValue}
           onChange={onInputChange}

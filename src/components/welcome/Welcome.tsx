@@ -12,11 +12,6 @@ export const Welcome: React.FC = () => {
       </div>
       <div className="mx-auto w-full max-w-[900px] text-lg">
         <p>
-          I was tired of switching windows while playing to check the time,
-          player count, map, and sometimes the wiki. So I created this app to
-          have everything in one place.
-        </p>
-        <p>
           To start using <b>Dragon Dayz Nuts</b>, go to the Servers tab, find
           the server you're playing on, and add it to favorites.
         </p>

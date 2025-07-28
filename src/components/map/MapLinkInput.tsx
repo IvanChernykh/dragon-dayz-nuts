@@ -23,9 +23,9 @@ export const MapLinkInput: React.FC = () => {
   };
 
   return (
-    <div className="flex gap-8">
+    <div className="flex 2xl:gap-8 lg:gap-6 gap-4">
       <Input
-        className="w-[300px]"
+        className="2xl:w-[300px] xl:w-[250px] lg:w-[220px] md:w-[200px] w-[180px]"
         id="map-invite-link"
         placeholder="Join with invite link"
         value={value}

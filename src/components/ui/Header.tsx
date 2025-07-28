@@ -56,13 +56,13 @@ export const Header: React.FC = () => {
     <div className="h-16 bg-gray-900 flex items-center px-3">
       <div className="flex justify-between w-full">
         <div>{pathname.includes(routes.map) && <MapLinkInput />}</div>
-        <div className="px-4 flex items-center justify-end gap-12 w-full text-lg">
+        <div className="px-4 flex items-center justify-end gap-12 w-full md:text-sm lg:text-base xl:text-lg text-xs">
           {favorite ? (
             <>
               <span>{data?.data.attributes.name}</span>
 
               {data && (
-                <span className="flex items-center gap-4">
+                <span className="flex items-center xl:gap-4 gap-3">
                   <PersonIcon />
                   {data.data.attributes.players} /{" "}
                   {data.data.attributes.maxPlayers}
@@ -70,7 +70,7 @@ export const Header: React.FC = () => {
               )}
 
               {data && (
-                <span className="flex items-center gap-4">
+                <span className="flex items-center xl:gap-4 gap-3">
                   <ClockIcon />
                   {data.data.attributes.details.time}
                 </span>
