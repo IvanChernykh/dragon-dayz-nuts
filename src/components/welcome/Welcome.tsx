@@ -6,8 +6,8 @@ export const Welcome: React.FC = () => {
       <div className="text-center mb-16">
         <h1 className="text-4xl mb-4">Welcome to</h1>
         <p className="text-2xl">
-          Dedicated Resourceful Assistive Graphical Overpowered Nimble Dayz
-          Nerdy Utility Toolkit System
+          Dedicated Resourceful Assistive Graphical Overpowered Nice-to-have
+          Dayz Nerdy Utility Toolkit System
         </p>
       </div>
       <div className="mx-auto w-full max-w-[900px] text-lg">

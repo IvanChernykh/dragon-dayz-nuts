@@ -1,6 +1,6 @@
 # Dragon Dayz Nuts
 
-Dedicated Resourceful Assistive Graphical Overpowered Nimble Dayz Nerdy Utility Toolkit System
+Dedicated Resourceful Assistive Graphical Overpowered Nice-to-have Dayz Nerdy Utility Toolkit System
 
 ## Get Started
 
